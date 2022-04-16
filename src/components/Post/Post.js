@@ -1,9 +1,12 @@
-import '../styles.css';
+const Post = ({post: {id, userId, title, body}}) => {
+    return (
+        <div>
+            <div>id:{id}</div>
+            <div>userId:{userId}</div>
+            <div>title:{title}</div>
+            <p>{body}</p>
+        </div>
+    );
+};
 
-export const Post = ({ post }) => {
-  return (
-      <div className={'element_style'}>
-        <span>{post.title}</span>
-      </div>
-  );
-}
+export {Post};

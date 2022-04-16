@@ -1,11 +1,15 @@
-import '../styles.css';
-
-export const User = ({ user }) => {
-  return (
-      <div className={'element_style'}>
-        <span>Userame: {user.username}</span><br/>
-        <span>Email: {user.email}</span><br/>
-        <span>Name: {user.name}</span><br/>
-      </div>
-  );
+const User = ({user, setUserDetails,trigger}) => {
+    const {id, name} = user;
+const click = () => {
+    setUserDetails(user)
+    trigger()
 }
+    return (
+        <div>
+            {id}.) {name}
+            <button onClick={()=>click()}>getDetails</button>
+        </div>
+    );
+};
+
+export {User};
