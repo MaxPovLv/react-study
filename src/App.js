@@ -1,29 +1,19 @@
-import css from './App.module.css';
-import {Posts, UserDetails, Users} from './components';
-import {useState} from "react";
-import {postService} from "./services";
+import {useState} from 'react'
 
-export const App = () => {
-    const [userDetails, setUserDetails] = useState(null);
-    const [posts,setPosts]= useState([])
+import {CarForm, Cars} from './components'
 
-    const getUserId = async (userId)=>{
-        const {data} = await postService.getPostsByUserId(userId);
-        setPosts(data)
-    };
-    
-    const trigger = () => {
-      setPosts([])
-    }
+const App = () => {
+    const [newCar, setNewCar] = useState(null);
+    const [updatedCar, setUpdatedCar] = useState(null);
+    const [carForUpdate, setCarForUpdate] = useState(null);
 
     return (
         <div>
-            <div className={css.wrap}>
-                <Users setUserDetails={setUserDetails} trigger={trigger}/>
-                {userDetails && <UserDetails userDetails={userDetails} getUserId={getUserId}/>}
-            </div>
+            <CarForm setNewCar={setNewCar} carForUpdate={carForUpdate} setUpdatedCar={setUpdatedCar}/>
             <hr/>
-            <Posts posts={posts}/>
+            <Cars newCar={newCar} setCarForUpdate={setCarForUpdate} updatedCar={updatedCar}/>
         </div>
     );
-}
+};
+
+export default App;
