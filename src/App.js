@@ -1,7 +1,18 @@
+import './App.styes.css'
+import {Cats,CatsForm,Dogs,DogsForm} from "./components";
+
 const App = () => {
     return (
         <div>
-            App
+            <div className={'flex'}>
+                <CatsForm/>
+                <DogsForm/>
+            </div>
+            <hr/>
+            <div className={'flex'}>
+                <Cats/>
+                <Dogs/>
+            </div>
         </div>
     );
 };
